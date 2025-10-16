@@ -4,26 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Laravel Auto Form Generator</title>
-<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" rel="stylesheet">
-<style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 2rem; background-color: #f9fafb; color: #111827; }
-    h1, h2, h3 { color: #1f2937; }
-    pre { background: #f3f4f6; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
-    code { color: #111827; font-family: monospace; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .badge img { margin-right: 0.5rem; }
-    .center { text-align: center; }
-    .section { margin-bottom: 2rem; }
-</style>
 </head>
-<body>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; padding: 2rem; background-color: #f9fafb; color: #111827;">
 
-
-<h1 class="section">Laravel Auto Form Generator</h1>
+<h1 style="color: #1f2937; margin-bottom:1rem;">Laravel Auto Form Generator</h1>
 <p>Automatically generate CRUD forms in Laravel for <strong>any table</strong>. Supports dynamic input types, file uploads, enums, foreign keys, TailwindCSS, Bootstrap, and auto-import of styles.</p>
 
-<h2 class="section">Features</h2>
+<h2 style="color: #1f2937; margin-top:2rem;">Features</h2>
 <ul>
     <li>Auto-create/edit forms from your database schema.</li>
     <li>Dynamic input types:
@@ -42,7 +29,7 @@
     <li>Supports dynamic options for selects (enum or foreign table).</li>
 </ul>
 
-<h2 class="section">Installation</h2>
+<h2 style="color: #1f2937; margin-top:2rem;">Installation</h2>
 
 <h3>1. Copy Helper Files</h3>
 <p>Place these files inside <code>app/Helpers</code>:</p>
@@ -57,13 +44,13 @@
 </ul>
 
 <h3>2. Set Framework in <code>.env</code></h3>
-<pre><code>CSS_FRAMEWORK=tailwind # Options: tailwind, bootstrap</code></pre>
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>CSS_FRAMEWORK=tailwind # Options: tailwind, bootstrap</code></pre>
 
 <h3>3. Create Migration for Testing</h3>
-<pre><code>php artisan make:migration create_test_inputs_table --create=test_inputs</code></pre>
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>php artisan make:migration create_test_inputs_table --create=test_inputs</code></pre>
 
 <h4>Example Migration:</h4>
-<pre><code>Schema::create('test_inputs', function (Blueprint $table) {
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>Schema::create('test_inputs', function (Blueprint $table) {
     $table->id();
     $table->string('name');
     $table->text('description')->nullable();
@@ -77,7 +64,7 @@
 });</code></pre>
 
 <h3>4. Model Setup</h3>
-<pre><code>namespace App\Models;
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -91,7 +78,7 @@ class User extends Model {
 }</code></pre>
 
 <h3>5. Controller Setup</h3>
-<pre><code>namespace App\Http\Controllers;
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -120,18 +107,18 @@ class UserController extends Controller {
 }</code></pre>
 
 <h3>6. Blade Form Example</h3>
-<pre><code>{!! \App\Helpers\ColumnInputMapper::getCDN() !!}
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>{!! \App\Helpers\ColumnInputMapper::getCDN() !!}
 <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
     @csrf
     @foreach($columns as $column)
         <label>{{ ucfirst($column['name']) }}</label>
         {!! \App\Helpers\ColumnInputMapper::getInput($column, $values[$column['name']] ?? null) !!}
     @endforeach
-    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <button type="submit" style="background-color:#2563eb; color:white; padding:0.5rem 1rem; border-radius:0.5rem; margin-top:1rem;">Save</button>
 </form></code></pre>
 
 <h3>7. Input Styles Customization</h3>
-<pre><code>return match(env('CSS_FRAMEWORK','tailwind')) {
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>return match(env('CSS_FRAMEWORK','tailwind')) {
     'tailwind' => [
         'text' => '!block !w-full !rounded-xl !border !border-gray-200 !px-4 !py-2 !bg-white !placeholder-gray-400 !text-gray-800 !shadow-sm !transition-colors !duration-150 !focus:!outline-none !focus:!ring-4 !focus:!ring-blue-100 !focus:!border-blue-400',
         'number' => '...',
@@ -163,13 +150,13 @@ class UserController extends Controller {
     <li>Use <code>ColumnInputMapper::getInput()</code> in Blade</li>
     <li>Set <code>CSS_FRAMEWORK</code> in .env</li>
     <li>Optionally, add filters:
-        <pre><code>Filter::addTableFilter('users', 'remember_token');
+        <pre style="background:#f3f4f6; padding:1rem; border-radius:0.5rem;"><code>Filter::addTableFilter('users', 'remember_token');
 Filter::addGlobalFilter('deleted_at');</code></pre>
     </li>
 </ul>
 
 <h3>9. Commands & Purpose</h3>
-<table border="1" cellpadding="6">
+<table border="1" cellpadding="6" style="border-collapse:collapse;">
 <tr><th>Command</th><th>Purpose</th></tr>
 <tr><td>php artisan make:migration</td><td>Create a migration file</td></tr>
 <tr><td>php artisan migrate</td><td>Run all migrations</td></tr>
@@ -191,7 +178,7 @@ Filter::addGlobalFilter('deleted_at');</code></pre>
     <li>Compatible with Laravel 12+, PHP 8.2+.</li>
 </ul>
 
-<h3 class="section">11. Styling & Colors</h3>
+<h3>11. Styling & Colors</h3>
 <ul>
     <li>Text inputs: Blue focus ring</li>
     <li>Number inputs: Green focus ring</li>
@@ -203,7 +190,7 @@ Filter::addGlobalFilter('deleted_at');</code></pre>
     <li>File: White background with shadow</li>
 </ul>
 
-<div class="center section">
+<div style="text-align:center; margin-top:2rem;">
   <img src="https://raw.githubusercontent.com/shahrakii/laravel-autoform/main/demo-form.png" width="600" alt="Demo Form">
 </div>
 
