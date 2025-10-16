@@ -189,9 +189,35 @@ Filter::addGlobalFilter('deleted_at');</code></pre>
     <li>File: White background with shadow</li>
 </ul>
 
-<div style="text-align:center; margin-top:2rem;">
-  <img src="https://raw.githubusercontent.com/shahrakii/laravel-autoform/main/demo-form.png" width="600" alt="Demo Form">
+<div style="text-align:center; margin-top:40px;">
+  <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" style="border:1px solid #ddd; border-radius:10px;">
+    <!-- Form background -->
+    <rect x="0" y="0" width="600" height="400" rx="10" ry="10" fill="#f9f9f9" />
+
+    <!-- Labels -->
+    <text x="40" y="50" font-family="Arial" font-size="14" fill="#333">Name</text>
+    <text x="40" y="100" font-family="Arial" font-size="14" fill="#333">Email</text>
+    <text x="40" y="150" font-family="Arial" font-size="14" fill="#333">Password</text>
+    <text x="40" y="200" font-family="Arial" font-size="14" fill="#333">Role</text>
+    <text x="40" y="250" font-family="Arial" font-size="14" fill="#333">Status</text>
+
+    <!-- Input boxes -->
+    <rect x="150" y="35" width="400" height="25" rx="5" ry="5" fill="#fff" stroke="#ccc" />
+    <rect x="150" y="85" width="400" height="25" rx="5" ry="5" fill="#fff" stroke="#ccc" />
+    <rect x="150" y="135" width="400" height="25" rx="5" ry="5" fill="#fff" stroke="#ccc" />
+    <rect x="150" y="185" width="400" height="25" rx="5" ry="5" fill="#fff" stroke="#ccc" />
+    <rect x="150" y="235" width="400" height="25" rx="5" ry="5" fill="#fff" stroke="#ccc" />
+
+    <!-- Checkbox -->
+    <rect x="150" y="285" width="20" height="20" rx="4" ry="4" fill="#fff" stroke="#ccc" />
+    <text x="180" y="300" font-family="Arial" font-size="14" fill="#333">Accept Terms</text>
+
+    <!-- Submit button -->
+    <rect x="150" y="330" width="120" height="35" rx="5" ry="5" fill="#2563EB" />
+    <text x="180" y="355" font-family="Arial" font-size="14" fill="#fff">Submit</text>
+  </svg>
 </div>
+
 
 </body>
 </html>
